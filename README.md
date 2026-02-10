@@ -34,11 +34,34 @@ A powerful, user-friendly video downloader that supports multiple platforms. Dow
 
 ## 🛠️ Installation
 
-### Prerequisites
+### Method 1: Install via pip (Easiest!)
+
+```bash
+pip install antigravitydl
+```
+
+Then run:
+```bash
+antigravitydl
+```
+
+That's it! All dependencies are installed automatically.
+
+### Method 2: Download Windows Executable
+
+1. Go to [Releases](https://github.com/amilaanjanab/antigravityDL/releases)
+2. Download `AntigravityDL-v1.0.0-Windows.zip`
+3. Extract and run `AntigravityDL.exe`
+
+**No Python installation required!**
+
+### Method 3: From Source
+
+**Prerequisites:**
 - Python 3.8 or higher
 - pip (Python package manager)
 
-### Setup
+**Setup:**
 
 1. **Clone the repository**
 ```bash
@@ -62,6 +85,7 @@ run.bat
 ```bash
 python main.py
 ```
+
 
 
 ## 📦 Dependencies

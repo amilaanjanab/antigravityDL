@@ -107,33 +107,32 @@
 
 ## 🛠️ Installation
 
-### Method 1: Install via pip (Easiest!)
+### Method 1: Download Windows Executable (Recommended!)
 
-Perfect for Python users who want the latest version:
-
-```bash
-pip install antigravitydl
-```
-
-Then run:
-```bash
-antigravitydl
-```
-
-**All dependencies installed automatically!** ✨
-
-### Method 2: Download Windows Executable (No Python Required!)
-
-Best for Windows users who don't have Python installed:
+**No Python required!** Best for most users:
 
 1. Go to [**Releases**](https://github.com/amilaanjanab/antigravityDL/releases/latest)
 2. Download `AntigravityDL-v1.0.0-Windows.zip`
 3. Extract the ZIP file
 4. Double-click `AntigravityDL.exe`
 
-**No Python, no dependencies, just download and run!** 🎉
+**That's it! No installation, no dependencies!** 🎉
+
+### Method 2: Install via pip (Coming Soon!)
+
+> ⚠️ **Note**: PyPI package will be available soon. For now, use Method 1 or Method 3.
+
+Once published, you'll be able to install with:
+
+```bash
+pip install antigravitydl
+antigravitydl
+```
+
+**All dependencies will be installed automatically!** ✨
 
 ### Method 3: From Source (For Developers)
+
 
 **Prerequisites:**
 - Python 3.8 or higher

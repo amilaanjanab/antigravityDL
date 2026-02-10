@@ -50,3 +50,9 @@ downloads/*
 
 # Config (if contains sensitive data)
 # config.json
+
+# PyInstaller
+*.spec
+build/
+dist/
+*.exe

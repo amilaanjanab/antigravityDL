@@ -31,8 +31,8 @@ A powerful, user-friendly video downloader that supports multiple platforms. Dow
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/amilaanjanab/antigravityDownload.git
-cd antigravityDownload
+git clone https://github.com/amilaanjanab/antigravityDL.git
+cd antigravityDL
 ```
 
 2. **Install dependencies**
@@ -41,9 +41,17 @@ pip install -r requirements.txt
 ```
 
 3. **Run the application**
+
+**Windows (Easy):**
+```bash
+run.bat
+```
+
+**Or manually:**
 ```bash
 python main.py
 ```
+
 
 ## 📦 Dependencies
 

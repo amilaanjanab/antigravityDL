@@ -1,0 +1,739 @@
+/* GravityDownloader Design System */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;700&display=swap');
+
+:root {
+    --bg-dark: #0a0a0f;
+    --glass-bg: rgba(20, 20, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent: #00f3ff;
+    /* Cyan Neon */
+    --accent-glow: rgba(0, 243, 255, 0.4);
+    --text-main: #e0e0e0;
+    --text-muted: #808090;
+    --danger: #ff2a6d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 42, 109, 0.05) 0%, transparent 20%);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 2.5rem;
+    letter-spacing: -2px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.highlight {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Glass Panels */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.glass-panel:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Antigravity Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+.delay-1 {
+    animation-delay: 1.5s;
+}
+
+/* Inputs & Buttons */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 0 24px;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.2s;
+}
+
+#scan-btn {
+    background: var(--text-muted);
+    color: black;
+}
+
+#scan-btn:hover {
+    background: white;
+}
+
+/* Preview Section */
+.preview-content {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#thumb-img {
+    width: 120px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+}
+
+.info-content h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.info-content p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+}
+
+.accent-btn {
+    flex: 2;
+    background: var(--accent);
+    color: black;
+    padding: 12px;
+}
+
+.accent-btn:hover {
+    background: white;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.secondary-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+}
+
+.secondary-btn:hover {
+    border-color: var(--text-muted);
+    color: white;
+}
+
+.danger-hover:hover {
+    border-color: var(--danger) !important;
+    background: rgba(255, 42, 109, 0.1) !important;
+    color: var(--danger) !important;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
+}
+
+.compact-btn {
+    padding: 2px 10px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abort-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+/* Progress Bar */
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.progress-track {
+    background: rgba(255, 255, 255, 0.05);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    transition: width 0.3s ease-out;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.log-area {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--danger);
+    text-align: center;
+    background: rgba(255, 42, 109, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 42, 109, 0.3);
+}
+
+/* Options Dropdowns */
+.options-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.glass-select {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.glass-select:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 5px var(--accent-glow);
+}
+
+/* Header Layout */
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Vertically center items */
+    position: relative;
+    margin-bottom: 20px;
+    /* Consolidate margin here */
+}
+
+/* Center title absolutely or flex trickery */
+.title-group {
+    text-align: center;
+}
+
+/* Settings Gear (Fixed Top Right) */
+.icon-btn {
+    position: fixed;
+    /* Detach from header */
+    top: 25px;
+    right: 25px;
+    z-index: 1000;
+    /* Ensure on top */
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+    /* Subtle Glass */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+
+.glass-select option {
+    background: var(--bg-dark);
+    color: var(--text-main);
+}
+
+/* Settings Modal */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 100;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--accent);
+}
+
+.modal h3 {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.setting-group {
+    margin-bottom: 15px;
+}
+
+.setting-group label {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+}
+
+.hint-text {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Active Download Card */
+.active-download-info {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#active-thumb {
+    width: 80px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.active-details {
+    flex: 1;
+    overflow: hidden;
+}
+
+#active-title {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.stat-grid {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.speed-readout {
+    color: var(--accent);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-glow);
+}
+
+/* Progress Bar Redesign */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-track {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    height: 8px;
+    /* Slightly thicker */
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0;
+    /* Override previous margin */
+}
+
+#percent-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+    min-width: 45px;
+}
+
+/* --- Neon Background Layer (Galaxy Edition) --- */
+/* --- Neon Background Layer (Refined Galaxy) --- */
+body {
+    background-color: #050510;
+    /* Smoother Deep Space Nebula */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.4), transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(219, 39, 119, 0.25), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(15, 118, 110, 0.3), transparent 50%);
+    background-attachment: fixed;
+    /* Fix bg */
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+}
+
+#background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+
+    /* GLASS NEON STYLE */
+    fill: currentColor;
+    /* Use solid fill */
+    opacity: 0.15;
+    /* Make it ghost-like (faded) */
+
+    /* The Glow */
+    filter: drop-shadow(0 0 20px currentColor) blur(0px);
+
+    animation: float-space 25s infinite ease-in-out;
+}
+
+/* Neon Colors - pumped up brightness for the glow */
+.icon-yt {
+    color: #ff3b3b;
+    top: 15%;
+    left: 10%;
+    animation-duration: 30s;
+}
+
+.icon-insta {
+    color: #ff00cc;
+    top: 65%;
+    left: 80%;
+    width: 160px;
+    height: 160px;
+    animation-duration: 35s;
+    animation-direction: reverse;
+}
+
+.icon-tiktok {
+    color: #00fff2;
+    top: 60%;
+    left: 15%;
+    width: 130px;
+    height: 130px;
+    animation-duration: 40s;
+}
+
+.icon-fb {
+    color: #0084ff;
+    top: 10%;
+    left: 75%;
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes float-space {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(10deg) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 30px) rotate(-5deg) scale(0.95);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+/* --- UI Redesign (Gravity DL Style) --- */
+
+/* Main Container - Centered */
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Vertical Center */
+    gap: 15px;
+    margin-top: -50px;
+    /* Slight visual offset upwards */
+}
+
+/* Typography */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    letter-spacing: -3px;
+    margin: 0;
+    line-height: 1;
+
+    /* Gradient Text */
+    background: linear-gradient(to right, #fff, #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.3));
+}
+
+.highlight {
+    /* The DL part */
+    background: linear-gradient(to right, #4db5ff, #00f3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 6px;
+    color: #94a3b8;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* The Capsule Input (Dark Glass) */
+.glass-panel {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(15, 15, 25, 0.7);
+    /* Much darker */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Faint border */
+    border-radius: 20px;
+    /* Rounded Capsule */
+    padding: 30px;
+    /* Spacious */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Input Field inside Capsule */
+.input-group {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+input {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    font-family: 'Fira Code', monospace;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+input:focus {
+    box-shadow: none;
+    border-color: transparent;
+    /* Remove default focus border */
+}
+
+/* Scan Button (Integrated) */
+#scan-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 0.9rem;
+    height: 45px;
+    border-radius: 8px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+#scan-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Hide clutter temporarily */
+.options-row {
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.options-row:hover {
+    opacity: 1;
+}
+
+/* Settings Gear (Fixed Top Right) - FINAL OVERRIDE */
+.icon-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9999;
+
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    /* Critical for perfect circle */
+    aspect-ratio: 1 / 1;
+    /* Enforce squareness */
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Hide clutter temporarily */
+.options-row {
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.options-row:hover {
+    opacity: 1;
+}

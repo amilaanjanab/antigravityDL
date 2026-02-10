@@ -1,0 +1,15 @@
+{
+    "project_name": "AnyVideoDownloader",
+    "root_path": "D:\\VS_Code\\AnyVideoDownloader",
+    "entry_point": "main.py",
+    "description": "Project configuration for AI Agents and Dev Launcher.",
+    "last_updated": 1770386093.5303314,
+    "structure_map": [
+        {
+            "folder": "",
+            "files": [
+                "main.py"
+            ]
+        }
+    ]
+}

@@ -11,8 +11,11 @@ try:
 except ImportError:
     HAS_COOKIES = False
 
-# Initialize Eel with the web folder
-eel.init('web')
+# Initialize Eel with the web folder (use absolute path to avoid issues)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WEB_DIR = os.path.join(SCRIPT_DIR, 'web')
+eel.init(WEB_DIR)
+
 
 import re
 import json

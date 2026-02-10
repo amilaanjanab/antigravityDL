@@ -403,9 +403,43 @@ if __name__ == '__main__':
     print(f"LAUNCHING GUI IN MODE: {gui_mode.upper()}")
     print(f"AUTH TARGET FOR DOWNLOADS: {TARGET_BROWSER.upper()}")
     
-    try:
-        eel.start('index.html', size=(900, 700), mode=gui_mode)
-    except Exception as e:
-        print(f"Primary Launch Failed ({gui_mode}): {e}")
-        # Fallback to system default
-        eel.start('index.html', size=(900, 700), mode='default')
+    # Try different ports if 8000 is busy
+    ports_to_try = [8000, 8001, 8002, 8003, 8080]
+    launched = False
+    
+    for port in ports_to_try:
+        try:
+            eel.start('index.html', size=(900, 700), mode=gui_mode, port=port)
+            launched = True
+            break
+        except OSError as e:
+            if "10048" in str(e) or "address already in use" in str(e).lower():
+                print(f"Port {port} is busy, trying next port...")
+                continue
+            else:
+                # Different error, try fallback mode
+                print(f"Launch error on port {port} with {gui_mode}: {e}")
+                try:
+                    eel.start('index.html', size=(900, 700), mode='default', port=port)
+                    launched = True
+                    break
+                except:
+                    continue
+        except Exception as e:
+            print(f"Unexpected error on port {port}: {e}")
+            continue
+    
+    if not launched:
+        print("\n" + "="*60)
+        print("ERROR: Could not start the application!")
+        print("="*60)
+        print("\nPossible solutions:")
+        print("1. Close any other instances of this application")
+        print("2. Run this command to find and kill the process:")
+        print("   netstat -ano | findstr :8000")
+        print("   taskkill /F /PID <PID_NUMBER>")
+        print("\n3. Or restart your computer")
+        print("="*60)
+        input("\nPress Enter to exit...")
+        sys.exit(1)
+

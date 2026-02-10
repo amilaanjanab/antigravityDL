@@ -1,23 +1,19 @@
 @echo off
+title AntigravityDL - Video Downloader
+cls
 echo ========================================
 echo   AntigravityDL - Video Downloader
 echo ========================================
 echo.
-
-REM Kill any existing instances on port 8000
-echo Checking for existing instances...
-for /f "tokens=5" %%a in ('netstat -ano ^| findstr :8000 ^| findstr LISTENING') do (
-    echo Stopping existing instance (PID: %%a)...
-    taskkill /F /PID %%a >nul 2>&1
-)
-
+echo Starting application...
+echo The app will open in your browser.
 echo.
-echo Starting AntigravityDL...
-echo.
-echo The application will open in your browser.
-echo Close this window to stop the application.
+echo To stop: Close this window or press Ctrl+C
+echo ========================================
 echo.
 
 python main.py
 
+echo.
+echo Application closed.
 pause

@@ -16,9 +16,20 @@ A powerful, user-friendly video downloader that supports multiple platforms. Dow
 
 ### Main Interface
 ![Homepage](screenshots/Screenshot_2Homepage.png)
+*Clean and intuitive interface - just paste your video URL and go!*
+
+### Download Screen
+![Download Screen](screenshots/Screenshot_Download_screen.png)
+*Video metadata preview with quality selection options*
+
+### Active Download
+![Downloading](screenshots/Screenshot_downloading_ss.png)
+*Real-time progress tracking with speed and status updates*
 
 ### Settings
 ![Settings](screenshots/Screenshot_Settings.png)
+*Configure browser authentication and download preferences*
+
 
 
 ## 🛠️ Installation

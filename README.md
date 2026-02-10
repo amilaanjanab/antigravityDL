@@ -14,13 +14,12 @@ A powerful, user-friendly video downloader that supports multiple platforms. Dow
 
 ## 📸 Screenshots
 
-> **Note:** Add your screenshots to the `screenshots/` folder and they will appear here!
-
 ### Main Interface
-![Main Interface](screenshots/main-interface.png)
+![Homepage](screenshots/Screenshot_2Homepage.png)
 
-### Download Progress
-![Download Progress](screenshots/download-progress.png)
+### Settings
+![Settings](screenshots/Screenshot_Settings.png)
+
 
 ## 🛠️ Installation
 
